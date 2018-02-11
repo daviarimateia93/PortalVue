@@ -1,18 +1,11 @@
 import Vuex from 'vuex'
 
+import loginModule from './modules/loginModule'
+import layoutModule from './modules/layoutModule'
+
 export const store = new Vuex.Store({
-  state: {
-    userInfo: {
-      user: '',
-      userJWT: '',
-      permissions: ''
-    }
-  },
-  mutations: {
-    setAuth (state, data) {
-      state.user = data.user
-      state.userJWT = data.jwt
-      state.permissions = data.permissions
-    }
+  modules: {
+    login: loginModule,
+    layout: layoutModule
   }
 })
