@@ -13,7 +13,7 @@
 
 <script>
 import SideMenu from '@/components/layout/SideMenu'
-import ToolBar from '@/components/layout/Toolbar'
+import ToolBar from '@/components/layout/ToolBar'
 
 export default {
   name: 'App',
