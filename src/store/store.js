@@ -1,11 +1,19 @@
 import Vuex from 'vuex'
+import Vue from 'vue'
 
-import loginModule from './modules/loginModule'
-import layoutModule from './modules/layoutModule'
+import login from './modules/loginModule'
+import layout from './modules/layoutModule'
+import config from './modules/configModule'
+
+Vue.use(Vuex)
 
 export const store = new Vuex.Store({
+  state: {
+
+  },
   modules: {
-    login: loginModule,
-    layout: layoutModule
+    login,
+    layout,
+    config
   }
 })
