@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent light :mini-variant.sync="mini">
+  <v-navigation-drawer permanent light :mini-variant.sync="menuStatus">
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
       <v-list-group v-for="item in menuItems" :key="item.label">

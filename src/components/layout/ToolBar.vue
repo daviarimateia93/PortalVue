@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     openMenu () {
-      return this.$store.layout.commit('toogleMenu')
+      this.$store.commit('menuToogle')
     }
   }
 }
