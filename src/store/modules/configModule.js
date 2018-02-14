@@ -9,7 +9,7 @@ const state = {
       },
       {
         label: 'Pessoa',
-        icon: 'fa-male',
+        icon: 'fa-users',
         value: 'modules/gerenciarme/pessoa/pessoa_grid.html',
         rule: 'App.configurations.env.module === "gerenciarme" && {PESSOA_READ}'
       },
