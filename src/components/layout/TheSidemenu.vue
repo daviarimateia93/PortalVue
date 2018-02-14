@@ -6,7 +6,7 @@
             :key="item.label"
             no-action
           >
-        <v-list-tile slot="activator">
+        <v-list-tile slot="activator" @click="menuClicked">
           <v-list-tile-action>
             <v-icon small class="menu--svg">{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -31,12 +31,24 @@ export default {
       right: null
     }
   },
+  methods: {
+    menuClicked () {
+      if (this.$store.getters.menuStatus === true) {
+        this.$store.commit('menuToogle')
+      }
+    }
+  },
   computed: {
     menuItems () {
       return this.$store.getters.menuItems
     },
-    menuStatus () {
-      return this.$store.getters.menuStatus
+    menuStatus: {
+      get () {
+        return this.$store.getters.menuStatus
+      },
+      set () {
+
+      }
     }
   }
 }
