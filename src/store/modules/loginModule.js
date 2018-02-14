@@ -1,9 +1,17 @@
-const loginModule = {
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {}
+const state = {
+
 }
+const getters = {
+
+}
+const mutations = {
+
+}
+const actions = {}
+
 export default {
-  loginModule
+  state,
+  mutations,
+  getters,
+  actions
 }

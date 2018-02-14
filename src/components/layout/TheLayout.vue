@@ -3,7 +3,9 @@
   <the-toolbar app></the-toolbar>
   <the-sidemenu app></the-sidemenu>
   <v-content>
-    <router-view />
+    <v-container  fluid grid-list-xl>
+      <router-view />
+    </v-container>
   </v-content>
 </v-app>
 </template>

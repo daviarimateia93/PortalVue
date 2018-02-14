@@ -1,7 +1,11 @@
 <template>
-  <v-content>
-    <v-container fluid>
-        <v-form>
+  <v-layout wrap>
+    <v-dialog :value="true" persistent max-width="500px">
+      <v-card hover="" style="background:white">
+        <v-card-title class="black--text">
+          <div class="text-xs-center">Login</div>
+        </v-card-title>
+        <v-card-text class="pt-4">
           <v-text-field
             label="Matriz"
             v-model="matriz"
@@ -15,12 +19,14 @@
           <v-text-field
             label="Senha"
             v-model="senha"
+            type="password"
             required
           ></v-text-field>
           <v-btn @click="submit()">login</v-btn>
-        </v-form>
-    </v-container>
-  </v-content>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+  </v-layout>
 </template>
 <script>
 import axios from 'axios'
@@ -31,14 +37,7 @@ export default {
       matriz: '',
       usuarioApelido: '',
       senha: '',
-      isAuth: true,
-      wrapper: {
-        isAuth: true,
-        usuarioApelido: this.usuarioApelido,
-        token: this.token,
-        matriz: this.matriz,
-        permissoes: this.permissoes
-      }
+      isAuth: true
     }
   },
   computed: {
@@ -60,7 +59,13 @@ export default {
       axiosAuth.get('/Autorizacao')
         .then(res => {
           console.log('invadi')
-          this.$store.dispatch('setAutenticacao', this.wrapper)
+          this.$store.dispatch('setAutenticacao', {
+            isAuth: true,
+            usuarioApelido: this.usuarioApelido,
+            token: this.token,
+            matriz: this.matriz,
+            permissoes: this.permissoes
+          })
           this.$router.replace('/')
           console.log('mudou o estado')
         })

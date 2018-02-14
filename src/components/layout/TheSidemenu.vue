@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer right="right" permanent :mini-variant.sync="menuStatus">
     <v-list class="pt-0" expand>
-      <v-divider></v-divider>
         <v-list-group
             v-for="item in menuItems"
             :key="item.label"
