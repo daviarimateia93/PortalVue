@@ -31,6 +31,7 @@ export default {
       right: null
     }
   },
+
   methods: {
     menuClicked () {
       if (this.$store.getters.menuStatus === true) {
@@ -38,14 +39,17 @@ export default {
       }
     }
   },
+
   computed: {
     menuItems () {
       return this.$store.getters.menuItems
     },
+
     menuStatus: {
       get () {
         return this.$store.getters.menuStatus
       },
+
       set () {
 
       }
