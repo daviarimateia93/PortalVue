@@ -1,18 +1,18 @@
 <template>
   <div>
     <v-data-table
-      :headers="headers"
-      :items="items"
+      :headers="gridHeaders"
+      :items="gridItems"
       hide-actions
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
-        <td></td> <!-- v-for -->
-        <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
+        <td>{{ props.item.codigo }}</td>
+        <td class="">{{ props.item.pessoa }}</td>
+        <td class="">{{ props.item.cpfcnpj }}</td>
+        <td class="">{{ props.item.fat }}</td>
+        <td class="">{{ props.item.finalizacao }}</td>
+        <td class="">{{ props.item.status }}</td>
         <td class="justify-center layout px-0">
           <v-btn icon class="mx-0" @click="editItem(props.item)">
             <v-icon color="teal">edit</v-icon>
@@ -30,50 +30,54 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      headerObject: {
-        type: Object,
-        required: true,
-        // falta validação.
-      }
+export default {
+  props: {
+    gridHeaders: {
+      type: Array,
+      required: true
+      // falta validação.
+    },
+    gridItems: {
+      type: Array,
+      required: true
+      // falta validação.
+    }
+  },
+
+  data: () => ({
+    items: []
+  }),
+
+  computed: {
+    formTitle () {
+      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    }
+  },
+
+  methods: {
+    propNamesLength (prop) {
+      return (Object.getOwnPropertyNames(prop).length + 1)
+    },
+    initialize () {
+      // this.items = this.$store.getters
     },
 
-    data: () => ({
-      headers: this.headerObject,
-      items: []
-    }),
-
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
-      propsLength (prop) {
-        return Object.keys(prop).length
-      }
+    editItem (item) {
     },
 
-    methods: {
-      initialize () {
-        //this.items = this.$store.getters
-      },
+    deleteItem (item) {
+    },
 
-      editItem (item) {
-      },
-
-      deleteItem (item) {
-      },
-
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.items[this.editedIndex], this.editedItem)
-        } else {
-          this.items.push(this.editedItem)
-        }
-        this.close()
+    save () {
+      if (this.editedIndex > -1) {
+        Object.assign(this.items[this.editedIndex], this.editedItem)
+      } else {
+        this.items.push(this.editedItem)
       }
+      this.close()
     }
   }
+}
 </script>
 
 <style>
