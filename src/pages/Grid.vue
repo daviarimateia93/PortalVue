@@ -1,9 +1,5 @@
 <template>
-  <portal-grid :gridHeaders="headers" :gridItems="items">
-    <div slot="items">
-
-    </div>
-  </portal-grid>
+  <portal-grid :gridHeaders="headers" :gridItems="items"></portal-grid>
 </template>
 
 <script>

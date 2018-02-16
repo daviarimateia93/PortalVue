@@ -11,7 +11,7 @@
             <td v-for="header in gridHeaders" :key="header.value">
               <span v-if="header.value !== 'acoes'">{{ props.item[header.value] }}</span>
               <span v-else>
-                <td class="justify-center layout px-0">
+                <td class="text-xs-right layout px-0">
                   <v-btn icon class="mx-0" @click="editItem(props.item)">
                     <v-icon color="teal">edit</v-icon>
                   </v-btn>
