@@ -24,7 +24,7 @@ export default {
         { text: 'Criação', value: 'fat' },
         { text: 'Finalização', value: 'finalizacao' },
         { text: 'Status', value: 'status' },
-        { text: 'Ações', value: 'iron' }
+        { text: 'Ações', value: 'acoes' }
       ],
       items: [
         {
