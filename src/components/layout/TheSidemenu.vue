@@ -1,11 +1,11 @@
 <template>
   <v-navigation-drawer permanent :mini-variant.sync="menuStatus" app>
     <v-list class="pt-0" expand>
-        <v-list-group
-            v-for="item in menuItems"
-            :key="item.label"
-            no-action
-          >
+      <v-list-group
+        v-for="item in menu.items"
+        :key="item.label"
+        no-action
+        >
         <v-list-tile slot="activator" @click="menuClicked">
           <v-list-tile-action>
             <v-icon small class="menu--svg">{{ item.icon }}</v-icon>
@@ -25,10 +25,13 @@
 </template>
 
 <script>
+// config file (change if needed)
+import { menu } from '../../config'
+
 export default {
   data () {
     return {
-      right: null
+      menu: menu
     }
   },
 
@@ -41,10 +44,6 @@ export default {
   },
 
   computed: {
-    menuItems () {
-      return this.$store.getters.menuItems
-    },
-
     menuStatus: {
       get () {
         return this.$store.getters.menuStatus
