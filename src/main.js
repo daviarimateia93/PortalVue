@@ -3,9 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+import moment from 'moment'
 import Vuetify from 'vuetify'
 
 import { store } from './store/store'
+
+moment.locale('pt-br')
 
 Vue.use(Vuetify)
 

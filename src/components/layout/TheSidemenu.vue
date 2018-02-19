@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer right="right" permanent :mini-variant.sync="menuStatus">
+  <v-navigation-drawer permanent :mini-variant.sync="menuStatus" app>
     <v-list class="pt-0" expand>
         <v-list-group
             v-for="item in menuItems"

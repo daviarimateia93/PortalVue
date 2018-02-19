@@ -1,13 +1,15 @@
 <template>
-  <v-app id="app">
-  <the-toolbar app></the-toolbar>
-  <the-sidemenu app></the-sidemenu>
-  <v-content>
-    <v-container grid-list-xl>
-      <router-view />
-    </v-container>
-  </v-content>
-</v-app>
+  <div>
+    <the-toolbar></the-toolbar>
+    <the-sidemenu></the-sidemenu>
+    <v-content>
+      <v-container grid-list-xl fill-height>
+        <v-layout justify-center align-center>
+          <router-view></router-view>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </div>
 </template>
 
 <script>
