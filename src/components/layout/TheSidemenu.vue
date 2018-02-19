@@ -2,9 +2,8 @@
   <v-navigation-drawer permanent :mini-variant.sync="menuStatus" app>
     <v-list class="pt-0" expand>
       <v-list-group
-        v-for="item in menu.items"
+        v-for="item in menu"
         :key="item.label"
-        no-action
         >
         <v-list-tile slot="activator" @click="menuClicked">
           <v-list-tile-action>
@@ -26,33 +25,28 @@
 
 <script>
 // config file (change if needed)
-import { menu } from '../../config'
+import { menuConfig } from '../../config.js'
+
+import { LayoutEventBus } from './LayoutEventBus'
 
 export default {
   data () {
     return {
-      menu: menu
+      menu: menuConfig.items,
+      menuStatus: false
     }
   },
 
   methods: {
     menuClicked () {
-      if (this.$store.getters.menuStatus === true) {
-        this.$store.commit('menuToogle')
-      }
+      this.menuStatus = !this.menuStatus
     }
   },
-
-  computed: {
-    menuStatus: {
-      get () {
-        return this.$store.getters.menuStatus
-      },
-
-      set () {
-
-      }
-    }
+  created () {
+    let vm = this
+    LayoutEventBus.$on('menuToogle', () => {
+      vm.menuStatus = !vm.menuStatus
+    }, vm)
   }
 }
 </script>

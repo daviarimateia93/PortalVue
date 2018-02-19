@@ -19,7 +19,7 @@
 </template>
 
 <script>
-
+import { LayoutEventBus } from './LayoutEventBus'
 export default {
   data () {
     return {
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     toogleMenu () {
-      this.$store.commit('menuToogle')
+      LayoutEventBus.$emit('menuToogle')
     }
   }
 }
