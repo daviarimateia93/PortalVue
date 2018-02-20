@@ -4,6 +4,8 @@
       <v-list-group
         v-for="item in menu"
         :key="item.label"
+        no-action
+        :appendIcon="item.subItems ? 'keyboard_arrow_down' : null"
         >
         <v-list-tile slot="activator" @click="menuClicked">
           <v-list-tile-action>
@@ -42,6 +44,7 @@ export default {
       this.menuStatus = !this.menuStatus
     }
   },
+
   created () {
     let vm = this
     LayoutEventBus.$on('menuToogle', () => {
