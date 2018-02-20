@@ -31,6 +31,8 @@
 <script>
 import axios from 'axios'
 import sha512 from 'js-sha512'
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
@@ -40,6 +42,7 @@ export default {
       isAuth: true
     }
   },
+
   computed: {
     token () {
       return `${this.matriz}@${this.usuarioApelido}@${this.encryptedUsuarioSenha}`
@@ -48,7 +51,12 @@ export default {
       return sha512(this.senha)
     }
   },
+
   methods: {
+    ...mapActions({
+      login: 'setAutenticacao'
+    }),
+
     submit () {
       const axiosAuth = axios.create({
         baseURL: 'http://gerenciarmeapi.mg3vsryazd.sa-east-1.elasticbeanstalk.com/rest',
@@ -56,23 +64,29 @@ export default {
           'Authorization': this.token
         }
       })
-      axiosAuth.get('/Autorizacao')
+      const vm = this
+      axiosAuth.get('/Autorizacao', vm)
         .then(res => {
           console.log('invadi')
-          this.$store.dispatch('setAutenticacao', {
-            isAuth: true,
-            usuarioApelido: this.usuarioApelido,
-            token: this.token,
-            matriz: this.matriz,
-            permissoes: this.permissoes
+          debugger
+          vm.login({
+            usuarioApelido: vm.usuarioApelido,
+            token: vm.token,
+            matriz: vm.matriz,
+            permissoes: vm.permissoes
           })
-          this.$router.replace('/')
+          vm.$router.replace('/')
           console.log('mudou o estado')
         })
         .catch(error => console.log(error))
     }
   },
+
   mounted () {
   }
 }
+//             usuarioApelido: vm.usuarioApelido,
+//            token: vm.token,
+//            matriz: vm.matriz,
+//            permissoes: vm.permissoes
 </script>
