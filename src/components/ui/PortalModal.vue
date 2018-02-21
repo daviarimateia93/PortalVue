@@ -1,6 +1,5 @@
 <template>
   <v-dialog v-model="modalContent.active" persistent max-width="500px">
-    <v-btn color="primary" dark slot="activator">Open Dialog</v-btn>
     <v-card>
       <v-card-title :class="{
         success: modalContent.type === 'success',
