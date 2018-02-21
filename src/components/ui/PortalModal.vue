@@ -1,14 +1,7 @@
 <template>
   <v-dialog v-model="modalContent.active" persistent max-width="500px">
     <v-card>
-      <v-card-title :class="{
-        success: modalContent.type === 'success',
-        primary: modalContent.type === 'primary',
-        info: modalContent.type === 'info',
-        warning: modalContent.type === 'warning',
-        danger: modalContent.type === 'danger'
-      }"
-      >
+      <v-card-title :class="modalTypeClass">
         <span class="headline">{{ modalContent.title }}</span>
       </v-card-title>
       <v-card-text>
@@ -16,7 +9,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" flat @click.native="modalContent.active = false">{{ modalContent.confirmButton.text }}</v-btn>
+        <v-btn :class="modalTypeClass" flat @click.native="modalContent.active = false">{{ modalContent.confirmButton.text }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -36,34 +29,40 @@ export default {
     return {
       modalContent: this.modalObject
     }
+  },
+
+  computed: {
+    modalTypeClass () {
+      return this.modalContent.type
+    }
   }
 }
 </script>
 
 <style>
 .success {
-  color: #fff;
-  background-color: #5cb85c;
+  color: #fff !important;
+  background-color: #5cb85c !important;
   border-color: #4cae4c;
 }
 .primary {
-  color: #fff;
-  background-color: #428bca;
+  color: #fff !important;
+  background-color: #428bca !important;
   border-color: #357ebd;
 }
 .info {
-  color: #fff;
-  background-color: #5bc0de;
+  color: #fff !important;
+  background-color: #5bc0de !important;
   border-color: #46b8da;
 }
 .warning {
-  color: #fff;
-  background-color: #f0ad4e;
+  color: #fff !important;
+  background-color: #f0ad4e !important;
   border-color: #eea236;
 }
 .danger {
-  color: #fff;
-  background-color: #d9534f;
+  color: #fff !important;
+  background-color: #d9534f !important;
   border-color: #d43f3a;
 }
 </style>
