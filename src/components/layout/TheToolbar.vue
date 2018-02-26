@@ -1,6 +1,6 @@
 <template>
   <v-toolbar dark color="primary" app>
-    <v-toolbar-side-icon @click.native.stop="toogleMenu"></v-toolbar-side-icon>
+    <v-toolbar-side-icon id="toogle-menu" @click.native.stop="toogleMenu"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">Portal</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
