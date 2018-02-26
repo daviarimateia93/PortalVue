@@ -2,11 +2,10 @@ import { mount } from '@vue/test-utils'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import TheLayout from '@/components/layout/TheLayout'
-import TheSidemenu from '@/components/layout/TheSidemenu'
 
 Vue.use(Vuetify)
 
-describe('TheLayout.vue', () => {
+describe('Testes no componente de Layout', () => {
   let component
 
   beforeEach(() => {

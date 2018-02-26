@@ -1,7 +1,7 @@
 <template>
   <v-layout row justify-center>
     <portal-modal :modalObject="modalConfig"></portal-modal>
-    <v-btn @click.stop="modalConfig.active = true">Abrir modal</v-btn>
+    <v-btn id="open-modal" @click.stop="modalConfig.active = true">Abrir modal</v-btn>
   </v-layout>
 </template>
 
