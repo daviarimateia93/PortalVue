@@ -1,13 +1,13 @@
 <template>
   <div>
-    <portal-bar-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'bar'"></portal-bar-chart>
-    <portal-bubble-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'bubble'"></portal-bubble-chart>
-    <portal-doughnut-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'doughnut'"></portal-doughnut-chart>
-    <portal-line-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'line'"></portal-line-chart>
-    <portal-pie-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'pie'"></portal-pie-chart>
-    <portal-polar-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'polar'"></portal-polar-chart>
-    <portal-radar-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'radar'"></portal-radar-chart>
-    <portal-scatter-chart :data="chartData" :options="chartOptions" :v-if="chartType === 'scatter'"><portal-scatter-chart>
+    <portal-bar-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Bar'"></portal-bar-chart>
+    <portal-bubble-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Bubble'"></portal-bubble-chart>
+    <portal-doughnut-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Doughnut'"></portal-doughnut-chart>
+    <portal-line-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Line'"></portal-line-chart>
+    <portal-pie-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Pie'"></portal-pie-chart>
+    <portal-polar-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Polar'"></portal-polar-chart>
+    <portal-radar-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Radar'"></portal-radar-chart>
+    <portal-scatter-chart :chartData="chartData" :options="chartOptions ? chartOptions : {}" v-if="chartType === 'Scatter'"></portal-scatter-chart>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ import PortalPieChart from './charts/PortalPieChart'
 import PortalPolarChart from './charts/PortalPolarChart'
 import PortalRadarChart from './charts/PortalRadarChart'
 import PortalScatterChart from './charts/PortalScatterChart'
-
 
 export default {
   props: ['data', 'options', 'type'],

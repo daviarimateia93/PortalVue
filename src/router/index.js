@@ -5,6 +5,7 @@ import Home from '@/pages/Home'
 import Login from '@/pages/Login'
 import Grid from '@/pages/Grid'
 import Modal from '@/pages/Modal'
+import Charts from '@/pages/Charts'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/modal',
       name: 'Modal Test',
       component: Modal
+    },
+    {
+      path: '/charts',
+      name: 'Charts Test',
+      component: Charts
     }
   ]
 })
