@@ -1,5 +1,4 @@
 <template>
-  <v-layout wrap>
     <v-dialog :value="true" persistent max-width="500px">
       <v-card hover="" style="background:white">
         <v-card-title class="black--text">
@@ -26,7 +25,6 @@
         </v-card-text>
       </v-card>
     </v-dialog>
-  </v-layout>
 </template>
 <script>
 import axios from 'axios'
@@ -67,8 +65,6 @@ export default {
       const vm = this
       axiosAuth.get('/Autorizacao', vm)
         .then(res => {
-          console.log('invadi')
-          debugger
           vm.login({
             usuarioApelido: vm.usuarioApelido,
             token: vm.token,
@@ -76,7 +72,8 @@ export default {
             permissoes: vm.permissoes
           })
           vm.$router.replace('/')
-          console.log('mudou o estado')
+
+          this.$route.name = 'Home'
         })
         .catch(error => console.log(error))
     }
