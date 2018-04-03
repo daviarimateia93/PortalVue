@@ -82,8 +82,4 @@ export default {
   mounted () {
   }
 }
-//             usuarioApelido: vm.usuarioApelido,
-//            token: vm.token,
-//            matriz: vm.matriz,
-//            permissoes: vm.permissoes
 </script>

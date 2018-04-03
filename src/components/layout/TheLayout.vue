@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="this.$route.name === 'Login'">
+    <div v-if="!this.userInfo()">
       <v-container id="loginContainer">
         <v-layout wrap>
           <v-flex>
@@ -9,7 +9,7 @@
         </v-layout>
       </v-container>
     </div>
-    <div v-if="this.$route.name !== 'Login'">
+    <div v-if="this.userInfo()">
       <the-toolbar></the-toolbar>
       <the-sidemenu></the-sidemenu>
       <v-content>
@@ -28,11 +28,18 @@ import TheSidemenu from '@/components/layout/TheSidemenu'
 import TheToolbar from '@/components/layout/TheToolbar'
 import Login from '@/components/auth/Login'
 
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     TheSidemenu,
     TheToolbar,
     Login
+  },
+  methods: {
+    ...mapGetters({
+      userInfo: 'userInfo'
+    })
   }
 }
 </script>

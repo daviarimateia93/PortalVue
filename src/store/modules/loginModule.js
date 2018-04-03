@@ -13,7 +13,6 @@ const getters = {
 }
 const mutations = {
   setAutenticacao (state, payload) {
-    debugger
     state.auth.usuarioApelido = payload.payload.usuarioApelido
     state.auth.token = payload.payload.token
     state.auth.matriz = payload.payload.matriz
