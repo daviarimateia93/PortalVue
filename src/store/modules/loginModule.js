@@ -1,22 +1,48 @@
 const state = {
-  auth: {
+  autorizacao: {
     usuarioApelido: '',
     matriz: '',
-    token: '',
-    permissoes: []
+    token: ''
+  },
+  usuario: {
+    id: '',
+    status: '',
+    estabelecimentoPadrao: {
+      id: '',
+      pessoa: {
+        id: '',
+        alias: '',
+        apelido: '',
+        nome: '',
+        cpf: '',
+        tipo: '',
+        emails: [],
+        telefones: [],
+        pessoaEnderecos: [],
+        pessoaAtributos: []
+      }
+    },
+    pessoaFisica: {
+
+    },
+    usuarioGrupo: {
+      id: '',
+      nome: '',
+      perfis: []
+    }
   }
 }
 const getters = {
   userInfo (state) {
-    return state.auth.usuarioApelido
+    return state.autorizacao.usuarioApelido
   }
 }
 const mutations = {
   setAutenticacao (state, payload) {
-    state.auth.usuarioApelido = payload.payload.usuarioApelido
-    state.auth.token = payload.payload.token
-    state.auth.matriz = payload.payload.matriz
-    state.auth.permissoes = payload.payload.permissoes
+    state.autorizacao.usuarioApelido = payload.payload.usuarioApelido
+    state.autorizacao.token = payload.payload.token
+    state.autorizacao.matriz = payload.payload.matriz
+    state.usuario = payload.payload.usuario
   }
 }
 const actions = {

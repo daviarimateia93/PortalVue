@@ -36,8 +36,7 @@ export default {
     return {
       matriz: '',
       usuarioApelido: '',
-      senha: '',
-      isAuth: true
+      senha: ''
     }
   },
 
@@ -62,18 +61,18 @@ export default {
           'Authorization': this.token
         }
       })
-      const vm = this
+      let vm = this
       axiosAuth.get('/Autorizacao', vm)
         .then(res => {
+          console.log(res)
           vm.login({
             usuarioApelido: vm.usuarioApelido,
             token: vm.token,
             matriz: vm.matriz,
-            permissoes: vm.permissoes
-          })
-          vm.$router.replace('/')
+            usuario: res.data
+          }, res)
 
-          this.$route.name = 'Home'
+          vm.$router.replace('/')
         })
         .catch(error => console.log(error))
     }
