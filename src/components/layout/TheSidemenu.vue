@@ -7,7 +7,7 @@
         no-action
         :appendIcon="item.subItems ? 'keyboard_arrow_down' : null"
         >
-        <v-list-tile slot="activator" @click="menuClicked">
+        <v-list-tile slot="activator">
           <v-list-tile-action>
             <v-icon small class="menu--svg">{{ item.icon }}</v-icon>
           </v-list-tile-action>
